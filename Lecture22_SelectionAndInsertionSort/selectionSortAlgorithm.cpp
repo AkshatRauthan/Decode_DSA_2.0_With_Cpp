@@ -30,6 +30,7 @@ int main(){
     // Average Case Time Complexity :- O(n*n)
     // Space Complexity :- O(1)
     // There Is No Optimised Method For Selection Sort.
+    // Selection Swap Is Unstable In Nature.
 
     for (int i=0; i<n-1; i++){
         int min=INT_MAX, min_index=0;
@@ -42,11 +43,9 @@ int main(){
         swap(arr[i],arr[min_index]);
     }
     cout<<"\n\nThe Elements of The Array In Sorted Order Are : \n";
-
     // For Each Loop.
     for (int i : arr) cout<<i<<"  ";
     // For Each int i In arr Print i+"  ".
-
     printf("\n\n");
     system("pause");
 }

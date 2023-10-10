@@ -6,7 +6,8 @@ using namespace std;
 // Algorithm :- In Every Round Swap The nth Element With Its Previous One Until The Element Is Smaller Than
 // Previous One After Starting All The Rounds From The Second Index.
 // Here We Have Initially Divided Our Array Into Two Parts : The Sorted Part Containing The First Element And
-// The Unsorted Containing All The Remaining Elements.
+// The Unsorted Part Containing All The Remaining Elements.
+// But At The Same Time The Whole Of The Array Remains Unsorted Until The LAst Pass.
 // Now After Every Round The length Of The Sorted Part Increases By 1 And The Size Of The Unsorted Part Decreases
 // By 1.
 // All This Will Continue Until The Length OF The Unsorted Part Becomes Zero.
@@ -23,6 +24,12 @@ int main(){
     for (int i=0; i<n; i++) cout<<arr[i]<<"  ";
 
     // Insertion Sort Algorithm :-
+    // Worst Case Time Complexity :- O(n*n)
+    // Best Case Time Complexity :- O(n)
+    // Average Case Time Complexity :- O(n*n)
+    // Space Complexity :- O(1)
+    // Here The Algorithm Works Exactly Like The Optimised Bubble Sort Without Using Any Check-mark.
+    // Insertion Sort Algorithm Is Stable In Nature As It Maintains The Relative Order Of Even Same Elements.
     for (int i=1; i<n; i++){
         for (int j=i; arr[j-1]>arr[j] && j>0;j--){
             swap(arr[j-1],arr[j]);
