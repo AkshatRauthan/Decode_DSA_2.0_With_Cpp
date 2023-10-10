@@ -9,6 +9,10 @@ using namespace std;
 //  There Are Total n-1 Swaps. It Is Helpful When We Have To Perform Minimum Number Of Swaps.
 //  Time Complexity :- O(n*n)
 //  Space Complexity :- O(1)
+//  Selection Sort Is USed When :-
+//  # There Is A Cost Of Swapping
+//  # We Have To Find k Minimum Elements From The Array.
+//  # If The Size Of The Array IS Small.
 
 int main(){
     int n;
@@ -26,6 +30,7 @@ int main(){
     // Average Case Time Complexity :- O(n*n)
     // Space Complexity :- O(1)
     // There Is No Optimised Method For Selection Sort.
+
     for (int i=0; i<n-1; i++){
         int min=INT_MAX, min_index=0;
         for (int j=i; j<n; j++){
