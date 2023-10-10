@@ -34,7 +34,6 @@ int main(){
             }
         }
     }
-
     cout<<"\n\nThe Elements of The Vectors In Sorted Order Are : \n";
     for (int i=0;i<n;i++) cout<<arr[i]<<"  ";
     printf("\n\n");
