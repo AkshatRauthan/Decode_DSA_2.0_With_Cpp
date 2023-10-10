@@ -24,7 +24,7 @@ int main(){
 
     // Insertion Sort Algorithm :-
     for (int i=1; i<n; i++){
-        for (int j=i; arr[j-1] > arr[j] && j>0;j--){
+        for (int j=i; arr[j-1]>arr[j] && j>0;j--){
             swap(arr[j-1],arr[j]);
         }
     }
