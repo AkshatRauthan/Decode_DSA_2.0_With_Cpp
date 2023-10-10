@@ -2,7 +2,7 @@
 #include "array"
 using namespace std;
 
-//                                  ________Selection Sort________
+//                                       ________Selection Sort________
 //  Algorithm :- In Each Round Find The Minimum Element In The Array And Swap It With The First nth Element.
 //  In Each Round The nth Minimum Element Goes To The nth Index.
 //  If There Are n Elements, Then The Array Will Get Completely Sorted In Maximum n-1 Rounds.
@@ -21,6 +21,10 @@ int main(){
     for (int i=0; i<n; i++) cout<<arr[i]<<"  ";
 
     // Selection Sort Algorithm :-
+    // Worst Case Time Complexity :- O(n*n)
+    // Best Case Time Complexity :- O(n*n)
+    // Average Case Time Complexity :- O(n*n)
+    // Space Complexity :- O(1)
     // There Is No Optimised Method For Selection Sort.
     for (int i=0; i<n-1; i++){
         int min=INT_MAX, min_index=0;
