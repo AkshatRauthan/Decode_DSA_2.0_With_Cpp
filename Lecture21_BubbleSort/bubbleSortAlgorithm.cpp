@@ -2,7 +2,7 @@
 #include "array"
 using namespace std;
 
-//                                    ________Bubble Sort________
+//                                    ________Bubble Sort_________
 //  Algorithm :- In Each Pass Swap Every Pair Two Adjacent Elements If The First Element Of The Pair Is Larger.
 //  In Each Pass The nth Max Element Goes To The nth Rightmost Index.
 //  If There Are n Elements, Then The Array Will Get Completely Sorted In Maximum n-1 Passes.
