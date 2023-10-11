@@ -12,7 +12,7 @@ using namespace std;
 //  Selection Sort Is USed When :-
 //  # There Is A Cost Of Swapping
 //  # We Have To Find k Minimum Elements From The Array.
-//  # If The Size Of The Array IS Small.
+//  # If The Size Of The Array Is Small.
 
 int main(){
     int n;
