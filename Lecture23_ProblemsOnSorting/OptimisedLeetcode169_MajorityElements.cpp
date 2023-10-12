@@ -30,5 +30,7 @@ int main(){
     v = initialize();
     int maj_ele = majorityElement(v);
     cout<<"\nThe Majority Element In The Vector Is : "<<maj_ele<<"\n";
+    cout<<"\n\n";
+    system("pause");
     return 0;
 }
