@@ -1,6 +1,11 @@
 #include "iostream"
 #include "vector"
+#include "algorithm"
 using namespace std;
+
+//  Given an array nums of size n, return the majority element.
+//  The majority element is the element that appears more than ⌊n / 2⌋ times.
+//  You may assume that the majority element always exists in the array.
 
 vector<int> initialize(){
     int n;
@@ -13,7 +18,18 @@ vector<int> initialize(){
 }
 
 int majorityElement(vector <int>& v){
-    int n=v.size();
+    int n=v.size(),maj=v[0];
+    sort(v.begin(),v.end());
+    for (int i=0,count=0; i<n; i++){
+        if (v[i] == maj) count++;
+        else {
+            maj = v[i+1];
+            count = 1;
+            i++;
+        }
+        if (count > (n/2)) return maj;
+    }
+    return -1;
 }
 
 int main(){
