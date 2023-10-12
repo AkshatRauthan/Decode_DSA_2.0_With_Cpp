@@ -18,18 +18,16 @@ vector<int> initialize(){
 }
 
 int majorityElement(vector <int>& v){
-    int n=v.size(),maj=v[0];
     sort(v.begin(),v.end());
-    for (int i=0,count=0; i<n; i++){
-        if (v[i] == maj) count++;
-        else {
-            maj = v[i+1];
-            count = 1;
-            i++;
+    int maj=v[0], count=0;
+    for (int i=0; i<v.size(); i++){
+        if (maj == v[i]) {
+            count++;
+            if (count > v.size()/2) return maj;
         }
-        if (count > (n/2)) return maj;
+        else maj = v[i+1];
     }
-    return -1;
+    return maj;
 }
 
 int main(){
