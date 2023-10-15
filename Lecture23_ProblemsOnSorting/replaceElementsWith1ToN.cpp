@@ -21,7 +21,8 @@ vector<int> initialize(){
 }
 
 vector<int> replaceElements(vector <int>& v){
-
+    vector<int> v1;
+    return v;
 }
 
 int main(){
