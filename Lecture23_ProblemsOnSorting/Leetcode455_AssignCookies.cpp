@@ -11,7 +11,19 @@ using namespace std;
 //  Your goal is to maximize the number of your content children and output the maximum number.
 
 int findContentChildren(vector<int>& g, vector<int>& s) {
-
+    sort(g.begin(),g.end());
+    sort(s.begin(),s.end());
+    int n=g.size(), m=s.size();
+    int max_child=0;
+    for (int i=0, j=0; i<n && j<m;){
+        if (g[i] <= s[j]) {
+            max_child++;
+            i++;
+            j++;
+        }
+        else j++;
+    }
+    return max_child;
 }
 
 int main(){
