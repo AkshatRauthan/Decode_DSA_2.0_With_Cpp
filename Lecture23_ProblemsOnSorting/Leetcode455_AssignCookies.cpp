@@ -39,6 +39,6 @@ int main(){
     cout<<"\nEnter The Size Of All The "<<m<<" Cookies : \n";
     for (int i=0; i<m; i++) cin>>s[i];
     int max_child = findContentChildren(g, s);
-    cout<<"The Maximum Number Of Content Children Are : "<<max_child<<"\n\n";
+    cout<<"\nThe Maximum Number Of Content Children Are : "<<max_child<<"\n\n\n";
     system("pause");
 }
