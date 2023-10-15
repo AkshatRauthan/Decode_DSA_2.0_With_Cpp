@@ -3,7 +3,7 @@
 #include "algorithm"
 using namespace std;
 
-//  Assume you are an awesome parent and want to give your children some cookies.
+//  You are an awesome parent and want to give your children some cookies.
 //  But, you should give each child at most one cookie.
 //  Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with;
 //  and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i,
