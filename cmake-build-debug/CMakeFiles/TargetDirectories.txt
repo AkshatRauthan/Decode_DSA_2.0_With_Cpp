@@ -1,0 +1,3 @@
+D:/PW_Skills_Batches/Decode DSA 2.0 With C++/cmake-build-debug/CMakeFiles/Decode_DSA_2_0_With_C__.dir
+D:/PW_Skills_Batches/Decode DSA 2.0 With C++/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/PW_Skills_Batches/Decode DSA 2.0 With C++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
