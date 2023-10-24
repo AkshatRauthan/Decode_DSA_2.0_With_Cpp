@@ -10,7 +10,7 @@ int main(){
     cout<<"\nEnter The Number :-\n";
     int n;
     cin>>n;
-    if (n < 0) cout<<"Oops! Factorial Of Teh Given Number Do Not Exists.";
+    if (n < 0) cout<<"Oops! Factorial Of The Given Number Do Not Exists.";
     else cout<<"The Factorial Of "<<n<<" Is : "<<fact(n);
     cout<<"\n\n";
     system("pause");
