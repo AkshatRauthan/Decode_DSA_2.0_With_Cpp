@@ -4,6 +4,8 @@ using namespace std;
 // Recursion Is Simply A Replacement Of Hectic And Lengthy Loops.
 // Recursion ==>> Problem = Something + Sub-Problem.
 
+// Given Below Is A Recursive Function That Runs n Number Of Times After Taking n As Input.
+
 int fun(int n){
     cout<<n<<"\n";
     if (!(n-1)) return 0;
