@@ -14,5 +14,6 @@ int main(){
     int n;
     cout<<"\nEnter The Value Of n :-\n";
     cin>>n;
+    cout<<"\n";
     fun(n);
 }
