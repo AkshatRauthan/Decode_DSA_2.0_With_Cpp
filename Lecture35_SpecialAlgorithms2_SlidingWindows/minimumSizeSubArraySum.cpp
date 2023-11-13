@@ -34,6 +34,41 @@ int minSubArrayLen(int target, vector<int>& v){
     return 0;
 }
 
+int minSubArrayLenOptimised(int target, vector<int>& v){
+    int j = 0, sum = 0, minLen = v.size() + 1;
+    bool flag;
+    for (int i=0; i<v.size(); i++){
+        flag = false;
+        if (i != 0){
+            sum -= v[i-1];
+            while (j < v.size()){
+                if (target <= sum){
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        else {
+            while (j<v.size()){
+                sum += v[j];
+                j++;
+                if (sum >= target){
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) return 0;
+        }
+        if (minLen > j-i+1 && flag) {
+            minLen = j-i+1;
+            idx = i;
+        }
+        if (!flag) return minLen;
+        cout<<"\nalan\n";
+    }
+    return minLen;
+}
+
 int main(){
     int n, target;
     cout<<"\nEnter The Number Of Elements Present In The Given Array :\n";
@@ -43,7 +78,7 @@ int main(){
     initialize(v);
     cout<<"\nEnter The Value Of The Target Sum :\n";
     cin>>target;
-    int len = minSubArrayLen(target ,v);
+    int len = minSubArrayLenOptimised(target ,v);
     if (len) {
         cout<<"\nThe Smallest SubArray With Required Sum Is : ";
         for (int i=0; i<len; i++) cout<<v[idx+i]<< "  ";
