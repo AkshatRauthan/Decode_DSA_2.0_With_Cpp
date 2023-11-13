@@ -36,9 +36,15 @@ int minSubArrayLen(int target, vector<int>& v){
 
 int minSubArrayLenOptimised(int target, vector<int>& v){
     int j = 0, sum = 0, minLen = v.size() + 1;
-    bool flag;
+    bool flag = false;
+    while (j<v.size()){
+        if (sum < target) sum += v[j++];
+        else {
+            flag = true;
+            break;
+        }
+    }
     for (int i=0; i<v.size(); i++){
-        flag = false;
         if (i != 0){
             sum -= v[i-1];
             while (j < v.size()){
@@ -54,6 +60,7 @@ int minSubArrayLenOptimised(int target, vector<int>& v){
         }
         if (!flag) return minLen;
         cout<<"\nalan\n";
+        flag = false;
     }
     return minLen;
 }
