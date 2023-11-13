@@ -26,22 +26,18 @@ void initialize(vector<int> &v){
 }
 
 int maxSatisfiedCustomers(vector<int>& customers, vector<int>& grumpy, int& minutes){
-    int  totalSum = 0, idx = 0, currSum = 0;
-    for (int i=0; i<minutes; i++){
-        currSum += customers[i];
-        if (grumpy[i] == 0) totalSum += customers[i];
-    }
-    int maxSum = currSum;
-    for (int i=2, j=minutes; j < customers.size(); i++,j++){
-        if (grumpy[i] == 0) totalSum += customers[i];
-        currSum += customers[j] - customers[i-1];
-        if (currSum > maxSum){
-            maxSum = currSum;
+    int n = grumpy.size(), maxSum = INT_MIN, totalSum = 0, sum = 0, idx = 0;
+    for (int i=0;i<minutes;i++) sum += customers[i];
+    for (int i=0, j=minutes-1; j<n; i++, j++){
+        if (i != 0) sum += customers[j] - customers[i-1];
+        if (sum > maxSum){
+            maxSum = sum;
             idx = i;
         }
+        if (!grumpy[i]) totalSum += customers[i];
     }
-    for (int i=0; i<minutes; i++) if (grumpy[i+idx] == 1) totalSum += customers[i+idx];
-    for (int i=0; i<minutes-1; i++) if (grumpy[customers.size()-i] == 0) totalSum += customers[customers.size()-i];
+    for (int i=1; i<minutes; i++) if (!grumpy[n-i]) totalSum += customers[n-i];
+    for (int i=0; i<minutes; i++) if (grumpy[idx+i]) totalSum += customers[idx+1];
     return totalSum;
 }
 
