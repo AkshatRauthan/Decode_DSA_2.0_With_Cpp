@@ -48,17 +48,6 @@ int minSubArrayLenOptimised(int target, vector<int>& v){
                 }
             }
         }
-        else {
-            while (j<v.size()){
-                sum += v[j];
-                j++;
-                if (sum >= target){
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) return 0;
-        }
         if (minLen > j-i+1 && flag) {
             minLen = j-i+1;
             idx = i;
