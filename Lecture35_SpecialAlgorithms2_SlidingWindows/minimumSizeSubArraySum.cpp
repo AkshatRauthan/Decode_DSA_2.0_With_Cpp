@@ -36,32 +36,9 @@ int minSubArrayLen(int target, vector<int>& v){
 
 int minSubArrayLenOptimised(int target, vector<int>& v){
     int j = 0, sum = 0, minLen = v.size() + 1;
-    bool flag = false;
-    while (j<v.size()){
-        if (sum < target) sum += v[j++];
-        else {
-            flag = true;
-            break;
-        }
-    }
     for (int i=0; i<v.size(); i++){
-        if (i != 0){
-            sum -= v[i-1];
-            while (j < v.size()){
-                if (target <= sum){
-                    flag = true;
-                    break;
-                }
-                sum += v[j];
-                j++;
-            }
-        }
-        if (minLen > j-i+1 && flag) {
-            minLen = j-i+1;
-            idx = i;
-        }
-        if (!flag) return minLen;
-        flag = false;
+        if (!i) while (sum < target) sum += v[i++];
+
     }
     return minLen;
 }
