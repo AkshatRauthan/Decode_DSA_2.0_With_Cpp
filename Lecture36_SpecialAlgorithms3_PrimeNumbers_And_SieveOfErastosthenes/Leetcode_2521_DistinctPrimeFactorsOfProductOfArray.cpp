@@ -11,11 +11,10 @@ bool isPrime(int n){
 int distinctPrimeFactors(int n, vector<int> &v){
     int count = 0;
     for (int i=n; i!=1 ;i--){
-        if (!isPrime(i)) continue;{
-            for (int j=0; j<v.size(); j++) if (v[j]%i == 0) {
-                count++;
-                break;
-            }
+        if (!isPrime(i)) continue;
+        for (int j=0; j<v.size(); j++) if (v[j]%i == 0) {
+            count++;
+            break;
         }
     }
     return count;
