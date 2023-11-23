@@ -8,7 +8,7 @@ bool isPrime(int n){
     return true;
 }
 
-int countDistinctPrime(int n, vector<int> &v){
+int distinctPrimeFactors(int n, vector<int> &v){
     int count = 0;
     for (int i=n; i!=1 ;i--){
         if (!isPrime(i)) continue;{
@@ -30,7 +30,7 @@ int main(){
     for (int i=0; i<n; i++) cin>>v[i];
     int Ele = v[0];
     for (int i=1; i<n; i++) Ele = max(Ele,v[i]);
-    Ele = countDistinctPrime(Ele,v);
+    Ele = distinctPrimeFactors(Ele,v);
     cout<<"\nThe Number Of Distinct Prime Factors Of Product Of The Given Array Is : \n";
     cout<<Ele;
     cout<<"\n\n";
