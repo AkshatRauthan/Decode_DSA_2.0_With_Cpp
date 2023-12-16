@@ -1,5 +1,5 @@
 #include "iostream"
-#include "linkedlist.h"
+#include "linkedlist"
 
 void removeDuplicates(Node* head){
     for (Node* temp = head; temp != nullptr && temp->next != nullptr; ){

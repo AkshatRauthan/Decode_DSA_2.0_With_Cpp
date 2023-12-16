@@ -1,5 +1,5 @@
 #include "iostream"
-#include "linkedlist.h"
+#include "linkedlist"
 using namespace std;
 
 Node* mergeSortedLists(Node* head1, Node* head2){

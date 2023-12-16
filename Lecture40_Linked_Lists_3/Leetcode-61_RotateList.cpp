@@ -1,5 +1,5 @@
 #include "iostream"
-#include "linkedlist.h"
+#include "linkedlist"
 LinkedList l1;
 
 void rotateList(Node* head, int k){

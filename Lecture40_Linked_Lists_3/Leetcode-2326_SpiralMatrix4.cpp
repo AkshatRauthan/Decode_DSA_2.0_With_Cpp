@@ -1,5 +1,5 @@
 #include "iostream"
-#include "linkedlist.h"
+#include "linkedlist"
 #include "vector"
 using namespace std;
 LinkedList l1;
