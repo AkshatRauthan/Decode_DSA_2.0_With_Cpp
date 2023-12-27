@@ -1,3 +1,7 @@
+#include "iostream"
+#include "string"
+using namespace std;
+
 class Solution {
 public:
     bool winnerOfGame(string s1) {

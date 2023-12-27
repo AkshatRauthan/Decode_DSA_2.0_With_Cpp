@@ -65,6 +65,6 @@ int main(){
         t.display();
         cout<<endl;
     }
-    cout<<"Size : "<<final.size()<<endl;
+    cout<<"Size Of The Final Vector Is : "<<final.size()<<"\n\n";
     system("pause");
 }
