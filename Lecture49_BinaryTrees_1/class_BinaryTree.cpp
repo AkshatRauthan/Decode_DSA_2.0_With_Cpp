@@ -6,7 +6,6 @@ public:
     int val;
     treeNode* left;
     treeNode* right;
-
     treeNode(int val){
         this->val = val;
         this->left = nullptr;
