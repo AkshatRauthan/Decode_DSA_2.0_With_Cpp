@@ -34,26 +34,26 @@ public:
     void displayIn(treeNode* node) {
         if (node == nullptr) return;            // Base Case
         displayIn(node->left);            // Call No 1
-        cout<<node->val<<"  ";                // Work
-        displayIn(node->right);         // Call No 2
+        cout<<node->val<<"  ";                 // Work
+        displayIn(node->right);          // Call No 2
     }
     void displayRevIn(treeNode* node){
         if (node == nullptr) return;            // Base Case
         displayRevIn(node->right);        // Call No 1
-        cout<<node->val<<"  ";                // Work
-        displayRevIn(node->left);       // Call No 2
+        cout<<node->val<<"  ";                 // Work
+        displayRevIn(node->left);        // Call No 2
     }
     void displayPost(treeNode* node) {
         if (node == nullptr) return;            // Base Case
         displayPost(node->left);          // Call No 1
         displayPost(node->right);        // Call No 2
-        cout<<node->val<<"  ";               // Work
+        cout<<node->val<<"  ";                // Work
     }
     void displayRevPost(treeNode* node){
         if (node == nullptr) return;            // Base Case
         displayRevPost(node->right);      // Call No 1
         displayRevPost(node->left);      // Call No 2
-        cout<<node->val<<"  ";               // Work
+        cout<<node->val<<"  ";                // Work
     }
 };
 
