@@ -21,14 +21,13 @@ public:
         root = nullptr;
     }
 
-    void displayLevel(treeNode* node, int n, int level = 1){
+    void displayLevel(treeNode* node, int n, int curLevel = 1){
         if (!node) return;
-        if (level == n){
+        if (curLevel == n){
             cout<<node->val<<"  ";
             return;
         }
-        level++;
-        return displayLevel(node->left,n,level), displayLevel(node->right,n,level);
+        return displayLevel(node->left,n,++curLevel), displayLevel(node->right,n,curLevel);
     }
 };
 
