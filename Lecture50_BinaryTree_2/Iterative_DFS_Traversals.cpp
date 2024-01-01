@@ -1,4 +1,5 @@
 #include "iostream"
+#include "stack"
 using namespace std;
 
 //                                    DFS : Depth First Search
@@ -27,22 +28,32 @@ public:
         root = nullptr;
     }
     void displayPre(treeNode* node) {
-        if (node == nullptr) return;            // Base Case
-        cout<<node->val<<"  ";                 // Work
-        displayPre(node->left);         // Call No 1
-        displayPre(node->right);       // Call No 2
+        stack<treeNode*> st;
+        st.push(node);
+        while (!st.empty()){
+            treeNode* temp = st.top();
+            st.pop();
+            cout<<temp->val<<"  ";
+            if (temp->right) st.push(temp->right);
+            if (temp->left) st.push(temp->left);
+        }
     }
     void displayRevPre(treeNode* node){
-        if (node == nullptr) return;            // Base Case
-        cout<<node->val<<"  ";                 // Work
-        displayRevPre(node->right);     // Call No 1
-        displayRevPre(node->left);     // Call No 2
+        stack<treeNode*> st;
+        st.push(node);
+        while (!st.empty()){
+            treeNode* temp = st.top();
+            st.pop();
+            cout<<temp->val<<"  ";
+            if (temp->left) st.push(temp->left);
+            if (temp->right) st.push(temp->right);
+        }
     }
     void displayIn(treeNode* node) {
         if (node == nullptr) return;            // Base Case
-        displayIn(node->left);            // Call No 1
+        displayIn(node->left);        // Call No 1
         cout<<node->val<<"  ";                 // Work
-        displayIn(node->right);          // Call No 2
+        displayIn(node->right);        // Call No 2
     }
     void displayRevIn(treeNode* node){
         if (node == nullptr) return;            // Base Case
@@ -51,16 +62,30 @@ public:
         displayRevIn(node->left);        // Call No 2
     }
     void displayPost(treeNode* node) {
-        if (node == nullptr) return;            // Base Case
-        displayPost(node->left);          // Call No 1
-        displayPost(node->right);        // Call No 2
-        cout<<node->val<<"  ";                // Work
+        stack<treeNode*> st;
+        stack<int> ans;
+        if (node)st.push(node);
+        while (!st.empty()){
+            treeNode* temp = st.top();
+            st.pop();
+            ans.push(temp->val);
+            if (temp->left) st.push(temp->left);
+            if (temp->right) st.push(temp->right);
+        }
+        for (;!ans.empty(); ans.pop()) cout<<ans.top()<<"  ";
     }
-    void displayRevPost(treeNode* node){
-        if (node == nullptr) return;            // Base Case
-        displayRevPost(node->right);      // Call No 1
-        displayRevPost(node->left);      // Call No 2
-        cout<<node->val<<"  ";                // Work
+    void displayRevPost(treeNode* node) {
+        stack<treeNode *> st;
+        stack<int> ans;
+        if (node)st.push(node);
+        while (!st.empty()) {
+            treeNode *temp = st.top();
+            st.pop();
+            ans.push(temp->val);
+            if (temp->right) st.push(temp->right);
+            if (temp->left) st.push(temp->left);
+        }
+        for (; !ans.empty(); ans.pop()) cout << ans.top() << "  ";
     }
 };
 
