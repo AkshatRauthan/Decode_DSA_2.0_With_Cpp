@@ -51,8 +51,8 @@ public:
     }
     void displayIn(treeNode* node) {
         stack<treeNode*> st;
-        while(!st.empty() || !node){
-            if (node){
+        while(!st.empty() || node){
+            if (node != nullptr){
                 st.push(node);
                 node = node->left;
             }
@@ -66,7 +66,7 @@ public:
     }
     void displayRevIn(treeNode* node){
         stack<treeNode*> st;
-        while(!st.empty() || !node){
+        while(!st.empty() || node){
             if (node){
                 st.push(node);
                 node = node->right;
