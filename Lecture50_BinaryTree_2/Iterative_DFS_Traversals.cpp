@@ -1,6 +1,13 @@
 #include "iostream"
 using namespace std;
 
+//                                    DFS : Depth First Search
+
+// In DFS Traversals We Traverse All The Nodes By Visiting All The Member Nodes That Are Present
+// In A Particular Branch.
+
+// Simply, We Travel Through All The Descendants Of A Node Until We Reach A Null Node.
+
 class treeNode{
 public:
     int val;
