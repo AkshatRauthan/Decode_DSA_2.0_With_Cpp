@@ -50,16 +50,34 @@ public:
         }
     }
     void displayIn(treeNode* node) {
-        if (node == nullptr) return;            // Base Case
-        displayIn(node->left);        // Call No 1
-        cout<<node->val<<"  ";                 // Work
-        displayIn(node->right);        // Call No 2
+        stack<treeNode*> st;
+        while(!st.empty() || !node){
+            if (node){
+                st.push(node);
+                node = node->left;
+            }
+            else {
+                treeNode* temp = st.top();
+                st.pop();
+                cout<<temp->val<<"  ";
+                node = temp->right;
+            }
+        }
     }
     void displayRevIn(treeNode* node){
-        if (node == nullptr) return;            // Base Case
-        displayRevIn(node->right);        // Call No 1
-        cout<<node->val<<"  ";                 // Work
-        displayRevIn(node->left);        // Call No 2
+        stack<treeNode*> st;
+        while(!st.empty() || !node){
+            if (node){
+                st.push(node);
+                node = node->right;
+            }
+            else {
+                treeNode* temp = st.top();
+                st.pop();
+                cout<<temp->val<<"  ";
+                node = temp->left;
+            }
+        }
     }
     void displayPost(treeNode* node) {
         stack<treeNode*> st;
