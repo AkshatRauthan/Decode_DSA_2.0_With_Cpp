@@ -42,31 +42,30 @@ public:
         }
     }
 };
-
-treeNode* build(vector<int>& pre,int preS, int preE, vector<int>& in, int inS, int inE){
-    if (preS > preE && inS > inE) return nullptr;
-    int target = pre[preS];
+treeNode* build(vector<int>& in,int inS, int inE, vector<int>& post, int postS, int postE){
+    if (inS > inE && postS > postE) return nullptr;
+    int target = post[postE];
     treeNode* node =  new treeNode(target);
     int rootidx = inS;
     while (in[rootidx] != target && rootidx <= inE) rootidx++;
     int noLeft = rootidx - inS;
-    node->left = build(pre,preS+1,       preS+noLeft,in,  inS+1-1,  rootidx-1);
-    node->right= build(pre,preS+noLeft+1,preE+1-1,   in , rootidx+1,inE+1-1);
+    node->left = build(in,  inS,       rootidx-1,    post,postS,postS+noLeft-1);
+    node->right= build(in,  rootidx+1, inE,          post, postS+noLeft, postE-1);
     return node;
 }
-treeNode* buildTree(vector<int>& pre, vector<int>& in) {
-    int n = pre.size()-1;
-    return build(pre, 0, n, in, 0, n);
+treeNode* buildTree(vector<int>& in, vector<int>& post) {
+    int n = in.size()-1;
+    return build(in, 0, n, post, 0, n);
 }
 int main(){
-    vector<int> pre = {3,9,20,15,7};
-    cout<<"\nThe Given Pre-Order Traversal Of The Binary Tree Is : \n";
-    for (int ele : pre) cout<<ele<<"  ";
+    vector<int> post = {9,15,7,20,3};
+    cout<<"\nThe Given Post-Order Traversal Of The Binary Tree Is : \n";
+    for (int ele : post) cout<<ele<<"  ";
     vector<int> in = {9,3,15,20,7};
     cout<<"\nThe Given In-Order Traversal Of The Binary Tree Is : \n";
     for (int ele : in) cout<<ele<<"  ";
     binaryTree b;
-    b.root = buildTree(pre,in);
+    b.root = buildTree(in,post);
     cout<<"\n\nThe Constructed Binary Tree From The Given Data Is As Follows : \n";
     b.levelOrderTraversal();
     cout<<"\n\n";

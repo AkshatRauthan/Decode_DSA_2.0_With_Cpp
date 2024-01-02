@@ -43,30 +43,32 @@ public:
     }
 };
 
-treeNode* build(vector<int>& pre,int preS, int preE, vector<int>& in, int inS, int inE){
-    if (preS > preE && inS > inE) return nullptr;
-    int target = pre[preS];
-    treeNode* node =  new treeNode(target);
-    int rootidx = inS;
-    while (in[rootidx] != target && rootidx <= inE) rootidx++;
-    int noLeft = rootidx - inS;
-    node->left = build(pre,preS+1,       preS+noLeft,in,  inS+1-1,  rootidx-1);
-    node->right= build(pre,preS+noLeft+1,preE+1-1,   in , rootidx+1,inE+1-1);
+treeNode* helper(vector<int>& pre, int preS, int preE, vector<int>& post, int postS, int postE){
+    if (preS > preE && postS > postE) return nullptr;
+    if (preS == preE) return new treeNode(pre[preS]);
+    treeNode* node = new treeNode(pre[preS]);
+    int ele = pre[preS+1];
+    int i = postS;
+    while(post[i] != ele) i++;
+    int noLeft = i-postS;
+    node->left  = helper(pre, preS+1,preS+noLeft+1, post, postS, postS+noLeft);
+    node->right = helper(pre, preS+noLeft+2, preE, post, postS+noLeft+1, postE-1);
     return node;
 }
-treeNode* buildTree(vector<int>& pre, vector<int>& in) {
+treeNode* constructFromPrePost(vector<int>& pre, vector<int>& post) {
     int n = pre.size()-1;
-    return build(pre, 0, n, in, 0, n);
+    return helper(pre,0,n,post,0,n);
 }
+
 int main(){
-    vector<int> pre = {3,9,20,15,7};
+    vector<int> pre = {1,2,4,5,3,6,7};
     cout<<"\nThe Given Pre-Order Traversal Of The Binary Tree Is : \n";
     for (int ele : pre) cout<<ele<<"  ";
-    vector<int> in = {9,3,15,20,7};
-    cout<<"\nThe Given In-Order Traversal Of The Binary Tree Is : \n";
-    for (int ele : in) cout<<ele<<"  ";
+    vector<int> post = {4,5,2,6,7,3,1};
+    cout<<"\nThe Given Post-Order Traversal Of The Binary Tree Is : \n";
+    for (int ele : post) cout<<ele<<"  ";
     binaryTree b;
-    b.root = buildTree(pre,in);
+    b.root = constructFromPrePost(pre,post);
     cout<<"\n\nThe Constructed Binary Tree From The Given Data Is As Follows : \n";
     b.levelOrderTraversal();
     cout<<"\n\n";
