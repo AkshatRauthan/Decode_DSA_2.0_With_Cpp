@@ -2,7 +2,6 @@
 #ifndef _GLIBCXX_BINARYTREE
 #define _GLIBCXX_BINARYTREE
 
-#include "linkedlist"
 #include "iostream"
 #include "stack"
 #include "queue"
