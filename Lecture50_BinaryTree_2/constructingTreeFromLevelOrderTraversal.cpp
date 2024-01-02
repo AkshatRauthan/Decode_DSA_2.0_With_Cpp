@@ -24,7 +24,6 @@ public:
     binaryTree(vector<int>& v){
         root = initializeBinaryTree(v);
     }
-
     treeNode* initializeBinaryTree(vector<int>& v) {
         queue<treeNode*> q;
         treeNode* node = new treeNode(v[0]);
